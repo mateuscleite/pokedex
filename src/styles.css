@@ -1,1 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
+
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #DC0A2D;
+  --primaryDark: #8B051D;
+  --secondary:#FFCC03;
+
+  --typeNormal:#BDBDAF;
+  --typeGrass:#8DD951;
+  --typeFire:#FA5644;
+  --typeWater:#57AEFF;
+  --typeFighting:#A75745;
+  --typeFlying:#79A4FF;
+  --typePoison:#A85C9F;
+  --typeGround:#EDD05D;
+  --typeRock:#CEBD72;
+  --typeBug:#C3D21F;
+  --typeGhost:#7975D6;
+  --typeElectric:#FEE63C;
+  --typePsychic:#F964B4;
+  --typeIce:#96F1FF;
+  --typeDragon:#8A75FF;
+  --typeDark:#8E6956;
+  --typeSteel:#C4C2DB;
+  --typeFairy:#FAADFF;
+
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+} 
