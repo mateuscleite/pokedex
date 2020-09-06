@@ -14,10 +14,10 @@
     background: var(--primary);
     border-top: 3px solid var(--secondary);
     color: var(--secondary);
+    font-size: 1rem;
     font-weight: bold;
 }
 
-.Footer a:hover,
-.Footer a:focus {
+.Footer a:hover {
   opacity: .5;
 }

@@ -1,0 +1,13 @@
+.PageDefault {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+app-content {
+    background-color: var(--primaryDark);
+    color: var(--secondary);
+    flex: 1;
+    padding-left: 5%;
+    padding-right: 5%;
+}
