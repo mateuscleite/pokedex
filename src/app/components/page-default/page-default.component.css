@@ -8,6 +8,5 @@ app-content {
     background-color: var(--primaryDark);
     color: var(--secondary);
     flex: 1;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding: 5%;
 }

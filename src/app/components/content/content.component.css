@@ -1,5 +1,4 @@
 .MainContent{
-    background-color: var(--typeGrass);
+    background-color: var(--primaryDark);
     color: var(--secondary);
-
 }

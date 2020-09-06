@@ -7,6 +7,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { ContentComponent } from './components/content/content.component';
 import { PageDefaultComponent } from './components/page-default/page-default.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { PageDefaultComponent } from './components/page-default/page-default.com
     HeaderComponent,
     FooterComponent,
     ContentComponent,
-    PageDefaultComponent
+    PageDefaultComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
