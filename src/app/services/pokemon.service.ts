@@ -1,4 +1,3 @@
-import { Pokemon } from './../interfaces/pokemon'
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
@@ -14,7 +13,11 @@ export class PokemonService {
   constructor(private http: HttpClient) {  }
 
   getPokemonList(offset: number){
-    console.log(offset)
     return this.http.get(`${this.API}pokemon?offset=${offset}&limit=${this.limit}`);
   }
+
+  getPokemonDetails(id: number){
+    return this.http.get(`${this.API}pokemon/${id}`)
+  }
+
 }

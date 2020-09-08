@@ -1,6 +1,6 @@
 import { environment } from './../../../environments/environment.prod';
 import { PokemonService } from './../../services/pokemon.service';
-import { Pokemon } from './../../interfaces/pokemon';
+import { Pokemon } from './../../classes/Pokemon/pokemon';
 import { Component, OnInit } from '@angular/core';
 import { map } from 'rxjs/operators'
 

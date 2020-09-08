@@ -1,4 +1,4 @@
-import { Pokemon } from './../../interfaces/pokemon';
+import { Pokemon } from '../../classes/Pokemon/pokemon'
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({

@@ -1,7 +1,10 @@
-export interface Pokemon {
+export class Pokemon {
+
     id: number;
     name: string;
     image: string;
     type: string[];
     url: string;
+    stats: any[];
+    
 }

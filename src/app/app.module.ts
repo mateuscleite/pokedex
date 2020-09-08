@@ -12,6 +12,8 @@ import { PageDefaultComponent } from './components/page-default/page-default.com
 import { CardComponent } from './components/card/card.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
+import { HomeComponent } from './components/home/home.component';
+import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
     PageDefaultComponent,
     CardComponent,
     PokemonListComponent,
-    CapitalizePipe
+    CapitalizePipe,
+    HomeComponent,
+    PokemonDetailsComponent
   ],
   imports: [
     BrowserModule,
