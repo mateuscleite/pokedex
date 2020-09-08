@@ -8,13 +8,13 @@ import { HttpClient } from '@angular/common/http'
 })
 export class PokemonService {
 
-  private readonly API = `${environment.API}pokemon`;
-
-  private pokemonList: any;
+  private readonly API = environment.API;
+  private readonly limit = 20;
 
   constructor(private http: HttpClient) {  }
 
-  getPokemonList(){
-    return this.http.get(this.API);
+  getPokemonList(offset: number){
+    console.log(offset)
+    return this.http.get(`${this.API}pokemon?offset=${offset}&limit=${this.limit}`);
   }
 }

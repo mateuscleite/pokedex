@@ -1,6 +1,6 @@
 <div class="pokemon-card">
-    <img class="pokemon-card-img" [src]="pokemon.image">
+    <img class="pokemon-card-img" [src]="pokemon.image" onerror="this.src='../../../assets/icons/pokeball.png'">
     <span class="pokemon-card-info" >
-        {{ pokemon.name }}
+        {{ pokemon.name | capitalize }}
     </span>
 </div>

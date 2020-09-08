@@ -12,23 +12,79 @@ import { map } from 'rxjs/operators'
 export class PokemonListComponent implements OnInit {
 
   pokemons: Pokemon[];
+  isLoading: boolean;
+  currentOffset: number;
+  count: number;
 
-  constructor(private service: PokemonService) { }
+  readonly offsetConstant: number = 20;
+
+  constructor(private service: PokemonService) { 
+    this.isLoading = true;
+    this.currentOffset = 0;
+  }
   
   ngOnInit() {
-    this.service.getPokemonList()
+    this.isLoading = true;
+    this.service.getPokemonList(this.currentOffset)
+      .pipe(
+        map((response : any) => {
+          this.pokemons = response.results
+          this.count = response.count
+        })
+      )
       .toPromise()
-      .then(response => this.pokemons = JSON.parse(JSON.stringify(response)).results)
       .then(list => {
         for(let pokemon of this.pokemons){
-          pokemon.image= `${environment.DEFAULT_IMAGE}${this.getPokemonId(pokemon.url)}.png`
+          pokemon.id = this.getPokemonId(pokemon.url)
+          pokemon.image = `${environment.DEFAULT_IMAGE}${pokemon.id}.png`
         }
+        this.isLoading = false;
       })    
   } 
+
+  getNextPage(){
+    this.isLoading = true;
+    if(this.currentOffset > this.count){
+      return
+    }
+    this.currentOffset = this.currentOffset + this.offsetConstant;
+    this.service.getPokemonList(this.currentOffset)
+      .pipe(
+        map((response : any) => this.pokemons = response.results)
+      )
+      .toPromise()
+      .then(list => {
+        for(let pokemon of this.pokemons){
+          pokemon.id = this.getPokemonId(pokemon.url)
+          pokemon.image = `${environment.DEFAULT_IMAGE}${pokemon.id}.png`
+        }
+        this.isLoading = false;
+      }) 
+  }
+
+  getPreviousPage(){
+    if(this.currentOffset == 0){
+      return
+    }
+    this.isLoading = true;
+    this.currentOffset -= this.offsetConstant;
+    this.service.getPokemonList(this.currentOffset)
+      .pipe(
+        map((response : any) => this.pokemons = response.results)
+      )
+      .toPromise()
+      .then(list => {
+        for(let pokemon of this.pokemons){
+          pokemon.id = this.getPokemonId(pokemon.url)
+          pokemon.image = `${environment.DEFAULT_IMAGE}${pokemon.id}.png`
+        }
+        this.isLoading = false;
+      }) 
+  }
 
   getPokemonId(url: string){
     // https://pokeapi.co/api/v2/pokemon/id/
     let id = url.slice(34).slice(0, -1)
-    return id;
+    return parseInt(id);
   }
 }

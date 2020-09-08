@@ -11,6 +11,7 @@ import { ContentComponent } from './components/content/content.component';
 import { PageDefaultComponent } from './components/page-default/page-default.component';
 import { CardComponent } from './components/card/card.component';
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { CapitalizePipe } from './pipes/capitalize.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { PokemonListComponent } from './components/pokemon-list/pokemon-list.com
     ContentComponent,
     PageDefaultComponent,
     CardComponent,
-    PokemonListComponent
+    PokemonListComponent,
+    CapitalizePipe
   ],
   imports: [
     BrowserModule,
