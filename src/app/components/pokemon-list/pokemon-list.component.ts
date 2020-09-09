@@ -2,6 +2,7 @@ import { environment } from './../../../environments/environment.prod';
 import { PokemonService } from './../../services/pokemon.service';
 import { Pokemon } from './../../classes/Pokemon/pokemon';
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { map } from 'rxjs/operators'
 
 @Component({
@@ -15,6 +16,7 @@ export class PokemonListComponent implements OnInit {
   isLoading: boolean;
   currentOffset: number;
   count: number;
+  subscription: Subscription;
 
   readonly offsetConstant: number = 20;
 
@@ -25,15 +27,14 @@ export class PokemonListComponent implements OnInit {
   
   ngOnInit() {
     this.isLoading = true;
-    this.service.getPokemonList(this.currentOffset)
+    this. subscription = this.service.getPokemonList(this.currentOffset)
       .pipe(
         map((response : any) => {
           this.pokemons = response.results
           this.count = response.count
         })
       )
-      .toPromise()
-      .then(list => {
+      .subscribe(list => {
         for(let pokemon of this.pokemons){
           pokemon.id = this.getPokemonId(pokemon.url)
           pokemon.image = `${environment.DEFAULT_IMAGE}${pokemon.id}.png`
@@ -48,12 +49,12 @@ export class PokemonListComponent implements OnInit {
       return
     }
     this.currentOffset = this.currentOffset + this.offsetConstant;
-    this.service.getPokemonList(this.currentOffset)
+
+    this.subscription = this.service.getPokemonList(this.currentOffset)
       .pipe(
         map((response : any) => this.pokemons = response.results)
       )
-      .toPromise()
-      .then(list => {
+      .subscribe(list => {
         for(let pokemon of this.pokemons){
           pokemon.id = this.getPokemonId(pokemon.url)
           pokemon.image = `${environment.DEFAULT_IMAGE}${pokemon.id}.png`
@@ -68,12 +69,12 @@ export class PokemonListComponent implements OnInit {
     }
     this.isLoading = true;
     this.currentOffset -= this.offsetConstant;
-    this.service.getPokemonList(this.currentOffset)
+
+    this. subscription = this.service.getPokemonList(this.currentOffset)
       .pipe(
         map((response : any) => this.pokemons = response.results)
       )
-      .toPromise()
-      .then(list => {
+      .subscribe(list => {
         for(let pokemon of this.pokemons){
           pokemon.id = this.getPokemonId(pokemon.url)
           pokemon.image = `${environment.DEFAULT_IMAGE}${pokemon.id}.png`
@@ -87,4 +88,9 @@ export class PokemonListComponent implements OnInit {
     let id = url.slice(34).slice(0, -1)
     return parseInt(id);
   }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
+  
 }

@@ -1,6 +1,6 @@
 
 <div class="card-list">
-    <app-card *ngFor="let pokemon of pokemons" [pokemon] = "pokemon"></app-card>
+    <app-card class="card-item" *ngFor="let pokemon of pokemons" [routerLink]="[pokemon.id]" [pokemon] = "pokemon"></app-card>
 </div>
 
 <div class="nav-list">

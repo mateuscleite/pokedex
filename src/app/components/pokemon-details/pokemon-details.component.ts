@@ -18,7 +18,6 @@ export class PokemonDetailsComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, private service: PokemonService) { 
     this.pokemon = new Pokemon();
-    console.log(this.pokemon)
   }
 
   ngOnInit(): void {
