@@ -1,3 +1,27 @@
-<div class="pokemon-details">
+<div *ngIf="!isLoading" class="pokemon-details">
     <app-card [pokemon] = "pokemon"></app-card>
+
+    <div class="pokemon-text">
+
+        <span class="type" *ngFor="let type of pokemon.type">
+            <span class="{{ type['type']['name'] }}">
+                {{ type['type']['name'] }}
+            </span>
+        </span>
+
+        <p>
+            Weight: {{ pokemon.weight | decimal }}kg     
+        </p>
+
+        <p>
+            Height: {{ pokemon.height | decimal }}m
+        </p>
+
+        <div *ngFor="let stat of pokemon.stats">
+            <p> {{ stat['stat']['name'] }}: {{ stat['base_stat'] }} </p>
+            <div class="stat">
+                <div class="value {{ stat['stat']['name'] }}" style="--stat: {{ stat['base_stat'] }}"></div>
+            </div>
+        </div>
+    </div>
 </div>

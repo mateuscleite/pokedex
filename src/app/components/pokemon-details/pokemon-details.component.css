@@ -1,4 +1,170 @@
 .pokemon-details{
-    display: flex;
-    flex-direction: row; 
+    align-items: center;
+    display: flex; 
+    flex-direction: column;
+    font-size: 20px;
+    justify-content: center;
+    text-shadow: 2px 2px black;
+}
+
+app-card {
+    justify-self: center;
+    width: 25vw;
+}
+
+.pokemon-text{
+    margin: 1.5rem;
+}
+
+.type{
+    color: black;
+    margin: 3px;
+    -webkit-text-fill-color: white;
+    -webkit-text-stroke-width: 0.5px;
+}
+
+.stat{
+    background-color: white;
+    border-radius: 1.5em;
+    border: 3px solid black;
+    height: 2em;
+    margin-bottom: 0.25em;
+    position: relative;
+    width: 25vw;
+}
+
+.stat .value{
+    content: '';
+    position: absolute;
+    top: 0em;
+    left: 0em;
+    bottom: 0em;
+    width: calc((var(--stat) / var(--maxStat)) * 100%);
+    min-width: 1%;
+    max-width: calc(100%);
+    border-radius: 1em;
+}
+
+@media (max-width: 800px) {
+    app-card{
+        width:70vw;
+    }
+
+    .stat{
+        width:70vw;
+    }
+
+    .pokemon-details{
+        font-size: 15px;
+    }
+}
+
+.normal{
+    background-color: var(--typeNormal);
+    border-radius: 0.7rem;
+    border: 3px solid var(--typeNormal);
+}
+.grass{
+    background-color: var(--typeGrass);
+    border-radius: 0.7rem;
+    border: 3px solid var(--typeGrass);
+}
+.fire{
+    background-color: var(--typeFire);
+    border-radius: 0.7rem;
+    border: 3px solid var(--typeFire);
+}
+.water{
+    background-color: var(--typeWater); 
+    border-radius: 0.7rem;
+    border: 3px solid var(--typeWater);
+}
+.fighting{
+    background-color: var(--typeFighting);
+    border-radius: 0.7rem;
+    border: 3px solid var(--typeFighting);
+}
+.flying{
+    background-color: var(--typeFlying);
+    border-radius: 0.7rem;
+    border: 3px solid var(--typeFlying);
+}
+.poison{
+    background-color: var(--typePoison);
+    border-radius: 0.7rem;
+    border: 3px solid var(--typePoison);
+}
+.ground{
+    background-color: var(--typeGround);
+    border-radius: 0.7rem;
+    border: 3px solid var(--typeGround);
+}
+.rock{
+    background-color: var(--typeRock);
+    border-radius: 0.7rem;
+    border: 3px solid var(--typeRock);
+}
+.bug{
+    background-color: var(--typeBug); 
+    border-radius: 0.7rem;
+    border: 3px solid var(--typeBug); 
+}
+.ghost{
+    background-color: var(--typeGhost);
+    border-radius: 0.7rem;
+    border: 3px solid var(--typeGhost);
+}
+.electric{
+    background-color: var(--typeElectric);
+    border-radius: 0.7rem;
+    border: 3px solid var(--typeElectric);
+}
+.psychic{
+    background-color: var(--typePsychic);
+    border-radius: 0.7rem;
+    border: 3px solid var(--typePsychic);
+}
+.ice{
+    background-color: var(--typeIce);
+    border-radius: 0.7rem;
+    border: 3px solid var(--typeIce);
+}
+.dragon{
+    background-color: var(--typeDragon); 
+    border-radius: 0.7rem;
+    border: 3px solid var(--typeDragon);
+}
+.dark{
+    background-color: var(--typeDark); 
+    border-radius: 0.7rem;
+    border: 3px solid var(--typeDark); 
+}
+.steel{
+    background-color: var(--typeSteel); 
+    border-radius: 0.7rem;
+    border: 3px solid var(--typeSteel);
+}
+.fairy{
+    background-color: var(--typeFairy); 
+    border-radius: 0.7rem;
+    border: 3px solid var(--typeFairy);
+}
+
+.hp{
+    background-color: var(--hp);
+}
+.attack{
+    background-color: var(--attack);
+}
+.defense{
+    background-color: var(--defense);
+}
+.special-attack{
+    background-color: var(--specialAttack);
+}
+.special-defense{
+    background-color: var(--specialDefense);
+}
+.speed{
+    background-color: var(--speed);
 }

@@ -15,12 +15,16 @@ export class PokemonDetailsComponent implements OnInit {
 
   pokemon: Pokemon;
   subscription: Subscription;
+  isLoading: boolean;
 
   constructor(private route: ActivatedRoute, private service: PokemonService) { 
     this.pokemon = new Pokemon();
+    this.isLoading = true
   }
 
   ngOnInit(): void {
+    this.isLoading = true;
+
     this.subscription = this.route.params.subscribe((params: any) => {
       this.pokemon.id = params['id']
       this.service.getPokemonDetails(this.pokemon.id).pipe(
@@ -29,10 +33,12 @@ export class PokemonDetailsComponent implements OnInit {
           this.pokemon.image = `${environment.DEFAULT_IMAGE}${this.pokemon.id}.png`
           this.pokemon.type = response['types']
           this.pokemon.stats = response['stats']
+          this.pokemon.weight = response['weight']
+          this.pokemon.height = response['height']
           console.log(this.pokemon)
         })
       )
-      .subscribe()
+      .subscribe(() => this.isLoading = false)
     })
 
   }

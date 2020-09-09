@@ -9,7 +9,7 @@
   font-display: swap;
 }
 
-* {
+*, *::before, *::after{
   box-sizing: border-box;
 }
 
@@ -37,6 +37,14 @@
   --typeSteel:#C4C2DB;
   --typeFairy:#FAADFF;
 
+  --hp:#FF0000;
+  --attack:#F08030;
+  --defense:#F8D030;
+  --specialAttack:#6890F0;
+  --specialDefense:#78C850;
+  --speed:#F85888;
+
+  --maxStat: 255;
 }
 
 html,

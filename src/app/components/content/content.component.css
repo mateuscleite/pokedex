@@ -1,4 +1,13 @@
 .MainContent{
     background-color: var(--primaryDark);
     color: var(--secondary);
+    font-family: 'GameBoy'; 
+    font-size: 12px; 
+    color: white;
+}
+
+@media (max-width: 800px) {
+    .MainContent{
+        font-size: 10px;
+    }
 }
