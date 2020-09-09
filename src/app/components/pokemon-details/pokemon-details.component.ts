@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-pokemon-details',
@@ -23,6 +24,16 @@ export class PokemonDetailsComponent implements OnInit {
   ngOnInit(): void {
     this.subscription = this.route.params.subscribe((params: any) => {
       this.pokemon.id = params['id']
+      this.service.getPokemonDetails(this.pokemon.id).pipe(
+        map((response: any) => {
+          this.pokemon.name = response['name'];
+          this.pokemon.image = `${environment.DEFAULT_IMAGE}${this.pokemon.id}.png`
+          this.pokemon.type = response['types']
+          this.pokemon.stats = response['stats']
+          console.log(this.pokemon)
+        })
+      )
+      .subscribe()
     })
 
   }
