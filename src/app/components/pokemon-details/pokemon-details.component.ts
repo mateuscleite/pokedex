@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../../classes/Pokemon/pokemon';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { Subscription } from 'rxjs';
@@ -17,7 +17,7 @@ export class PokemonDetailsComponent implements OnInit {
   subscription: Subscription;
   isLoading: boolean;
 
-  constructor(private route: ActivatedRoute, private service: PokemonService) { 
+  constructor(private route: ActivatedRoute, private router: Router, private service: PokemonService) { 
     this.pokemon = new Pokemon();
     this.isLoading = true
   }
@@ -26,7 +26,8 @@ export class PokemonDetailsComponent implements OnInit {
     this.isLoading = true;
 
     this.subscription = this.route.params.subscribe((params: any) => {
-      this.pokemon.id = params['id']
+      this.pokemon.id = parseInt(params['id'])
+      console.log(typeof params['id'])
       this.service.getPokemonDetails(this.pokemon.id).pipe(
         map((response: any) => {
           this.pokemon.name = response['name'];
@@ -35,7 +36,6 @@ export class PokemonDetailsComponent implements OnInit {
           this.pokemon.stats = response['stats']
           this.pokemon.weight = response['weight']
           this.pokemon.height = response['height']
-          console.log(this.pokemon)
         })
       )
       .subscribe(() => this.isLoading = false)

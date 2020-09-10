@@ -45,6 +45,20 @@ app-card {
     border-radius: 1em;
 }
 
+.bulbapedia-link{
+    text-decoration: underline;
+}
+
+.bulbapedia-link:hover{
+    color: lightgrey;
+    transition: 0.3s;
+}
+
+.bulbapedia-link:active {
+    background-color: white;
+    transition: 0.3s;
+  }
+
 @media (max-width: 800px) {
     app-card{
         width:70vw;

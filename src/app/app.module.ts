@@ -15,6 +15,7 @@ import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { HomeComponent } from './components/home/home.component';
 import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
 import { DecimalPipe } from './pipes/decimal.pipe';
+import { Page404Component } from './components/page404/page404.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { DecimalPipe } from './pipes/decimal.pipe';
     CapitalizePipe,
     HomeComponent,
     PokemonDetailsComponent,
-    DecimalPipe
+    DecimalPipe,
+    Page404Component
   ],
   imports: [
     BrowserModule,

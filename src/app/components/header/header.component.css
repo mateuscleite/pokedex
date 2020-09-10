@@ -1,33 +1,103 @@
-.Header {
+.navbar {
     width: 100%;
     height: 100px;
 
     display: flex;
-    justify-content: center;
-
-    position: relative;
-    top: 0;
-    left: 0;
-    right: 0;
+    justify-content: space-between;
+    align-items: center;
 
     background: var(--primary);
     border-bottom: 3px solid var(--secondary);
+    color: var(--secondary);
+    font-weight: bold;
 }
 
 .Logo {
     /* Width obtained by dividing original logo width by 3.37
         Original logo image has height of 337px but header height has height of 100px, 3.37 was obtained from this*/
     max-width: 220px;
+    max-height: 100%;
+    margin: 10px;
+}
+
+.Logo:hover{
+    cursor: pointer;
+}
+
+.dropbtn {
+    align-items: center;
+    background-color: var(--primary);
+    border-radius: 1rem;
+    border: 3px solid var(--secondary);
+    color: var(--secondary);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
+    
+    height: 2.75rem;
+    width: 3rem;
+}
+
+.menu-bar{
+    background-color: var(--secondary);
+    border-radius: 0.75rem;
+    height: 0.25rem;
+    margin-bottom: 0.25em;
+    width: 85%;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--primary);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 1rem;
+}
+
+/* Links inside the dropdown */
+.dropdown-content p {
+    padding: 0.25rem;
+    display: block;
+}
+
+.dropdown-content p:hover {
+    background-color: var(--primaryDark);
+    cursor: pointer;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: var(--primaryDark);
 }
 
 /* Different sizes for mobile devices */
 @media (max-width: 800px) {
-    .Header{
+    .navbar{
         height: 50px;
     }
 
     .Logo {
       max-width: 110px;
     }
-}
 
+    .dropbtn {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 0.65rem;
+    }
+    
+    .menu-bar{
+        height: 0.2rem;
+    }
+}
