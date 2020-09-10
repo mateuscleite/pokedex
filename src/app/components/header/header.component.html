@@ -1,14 +1,9 @@
 <nav class="navbar">
-    <div class="dropdown">
-        <div class="dropbtn">
-            <span class="menu-bar"></span>
-            <span class="menu-bar"></span>
-            <span class="menu-bar"></span>
-        </div>
-        <div class="dropdown-content">
-            <p routerLink="">Home</p>
-            <p routerLink="pokemon" [queryParams]="{page: 0}">Pokémon</p>
-        </div>
-      </div> 
-    <img routerLink="" class="Logo" src="../../../assets/logos/pokemonLogo.png" alt="Pokémon Logo"/>
+    <img class="logo" src='../../../assets/logos/pokemonLogo.png' alt="Pokémon Logo">
+    <div class="navbar-routes">
+        <ul>
+            <li><span routerLink="">Home</span></li>
+            <li><span routerLink="pokemon" [queryParams]="{page: 0}">Pokémons</span></li>
+        </ul>
+    </div>
 </nav>

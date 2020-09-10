@@ -17,3 +17,9 @@
     background-color: var(--primaryDark);
     cursor: pointer;  
 }
+@media (max-width: 800px){
+    .image{
+        width: 200px;
+        height: 100px;
+    }
+}

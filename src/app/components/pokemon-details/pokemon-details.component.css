@@ -2,7 +2,7 @@
     align-items: center;
     display: flex; 
     flex-direction: column;
-    font-size: 20px;
+    font-size: 16px;
     justify-content: center;
     text-shadow: 2px 2px black;
 }
@@ -27,7 +27,7 @@ app-card {
     background-color: white;
     border-radius: 1.5em;
     border: 3px solid black;
-    height: 2em;
+    height: 1.5em;
     margin-bottom: 0.25em;
     position: relative;
     width: 25vw;

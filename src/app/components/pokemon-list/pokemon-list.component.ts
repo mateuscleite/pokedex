@@ -116,7 +116,6 @@ export class PokemonListComponent implements OnInit {
   sendToFirstPage(){
     this.currentPage = 0;
     this.currentOffset = this.currentPage*this.offsetConstant;
-    console.log('Offset: ' + this.currentOffset + ' Page: ' + this.currentPage)
     this.subscription = this.loadPokemons();
     this.router.navigate(['/pokemon'], {queryParams: {page: this.currentPage}});
   }
