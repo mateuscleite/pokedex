@@ -14,8 +14,9 @@
 }
 
 :root {
-  --primary: #DC0A2D;
-  --primaryDark: #8B051D;
+  --primary: #17285E;
+  --primaryDark: #0f1a40;
+  --primaryLight: #3363AF;
   --secondary:#FFCC03;
   --secondaryDark:#dbb004;
 
@@ -50,6 +51,7 @@
 
 html,
 body {
+
   margin: 0;
   padding: 0;
 }

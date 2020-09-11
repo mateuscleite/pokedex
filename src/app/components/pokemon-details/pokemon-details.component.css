@@ -23,6 +23,10 @@ app-card {
     -webkit-text-stroke-width: 0.5px;
 }
 
+.stat-name{
+    margin-bottom: 5px;
+}
+
 .stat{
     background-color: white;
     border-radius: 1.5em;
