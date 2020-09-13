@@ -1,7 +1,6 @@
 .pokemon-details{
-    align-items: center;
+    align-items: top;
     display: flex; 
-    flex-direction: column;
     font-size: 16px;
     justify-content: center;
     text-shadow: 2px 2px black;
@@ -13,7 +12,7 @@ app-card {
 }
 
 .pokemon-text{
-    margin: 1.5rem;
+    margin-left: 4rem;
 }
 
 .type{
@@ -21,6 +20,10 @@ app-card {
     margin: 3px;
     -webkit-text-fill-color: white;
     -webkit-text-stroke-width: 0.5px;
+}
+
+.stats{
+    margin-bottom: 1rem;
 }
 
 .stat-name{
@@ -50,6 +53,7 @@ app-card {
 }
 
 .bulbapedia-link{
+    color: var(--secondary);
     text-decoration: underline;
 }
 
@@ -64,6 +68,16 @@ app-card {
   }
 
 @media (max-width: 800px) {
+
+    .pokemon-details{
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .pokemon-text{
+        margin: 1rem;
+    }
+
     app-card{
         width:70vw;
     }

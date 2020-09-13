@@ -16,6 +16,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PokemonDetailsComponent } from './components/pokemon-details/pokemon-details.component';
 import { DecimalPipe } from './pipes/decimal.pipe';
 import { Page404Component } from './components/page404/page404.component';
+import { RemoveDashPipe } from './pipes/remove-dash.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { Page404Component } from './components/page404/page404.component';
     HomeComponent,
     PokemonDetailsComponent,
     DecimalPipe,
-    Page404Component
+    Page404Component,
+    RemoveDashPipe
   ],
   imports: [
     BrowserModule,
