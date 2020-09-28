@@ -27,7 +27,6 @@ export class PokemonDetailsComponent implements OnInit {
 
     this.subscription = this.route.params.subscribe((params: any) => {
       this.pokemon.id = parseInt(params['id'])
-      console.log(typeof params['id'])
       this.service.getPokemonDetails(this.pokemon.id).pipe(
         map((response: any) => {
           this.pokemon.name = response['name'];
@@ -38,7 +37,10 @@ export class PokemonDetailsComponent implements OnInit {
           this.pokemon.height = response['height']
         })
       )
-      .subscribe(() => this.isLoading = false)
+      .subscribe(
+        () => this.isLoading = false,
+        error => {this.router.navigate(['/404']);}
+        )
     })
 
   }

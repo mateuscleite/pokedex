@@ -1,9 +1,12 @@
-
-<div class="card-list">
-    <app-card class="card-item" *ngFor="let pokemon of pokemons" [routerLink]="[pokemon.id]" [pokemon] = "pokemon"></app-card>
-</div>
-
-<div class="nav-list">
-    <img class="nav-button" *ngIf="currentOffset > 0" (click)="getPreviousPage()" src="../../../assets/icons/leftArrow.png" alt="Previous Page">
-    <img class="nav-button" *ngIf="count - currentOffset >= offsetConstant" (click)="getNextPage()" src="../../../assets/icons/rightArrow.png" alt="Next Page">
+<div class="pokemon-list">
+    <app-search-bar (requestSearch)="getPokemonSearchParameter($event)"></app-search-bar>
+    
+    <div class="card-list">
+        <app-card  class="card-item" *ngFor="let pokemon of pokemons" [routerLink]="[pokemon.id]" [pokemon] = "pokemon"></app-card>
+    </div>
+    
+    <div class="nav-list">
+        <img class="nav-button" *ngIf="currentOffset > 0" (click)="getPreviousPage()" src="../../../assets/icons/leftArrow.png" alt="Previous Page">
+        <img class="nav-button" *ngIf="count - currentOffset >= offsetConstant" (click)="getNextPage()" src="../../../assets/icons/rightArrow.png" alt="Next Page">
+    </div>
 </div>

@@ -19,7 +19,11 @@ export class PokemonListComponent implements OnInit {
   count: number;
   subscription: Subscription;
   querySubscription: Subscription;
-  currentPage: number
+  currentPage: number;
+
+  pokemonSearchParameter: string;
+  requestSearch: string;
+  pokemonSearchResponse: Pokemon[];
 
   readonly offsetConstant: number = 20;
 
@@ -64,6 +68,32 @@ export class PokemonListComponent implements OnInit {
           this.isLoading = false;
         }
       });
+  }
+
+  getPokemonSearchParameter(event){
+    this.pokemonSearchParameter = event
+    console.log("Received: " + this.pokemonSearchParameter)
+    this.searchPokemon()
+  }
+
+  searchPokemon(){
+    this.router.navigate(['/pokemon'], {queryParams: {search: this.pokemonSearchParameter}});
+    let search = this.service.getPokemonSearch()
+      .pipe(
+        map((response : any) => {
+          this.pokemons = response['results']
+          this.count = parseInt(response['count'])
+          console.log(this.pokemons)
+        })
+      )
+      .subscribe(res =>{
+        this.pokemons = this.pokemons.filter(pokemon => pokemon.name.includes(this.pokemonSearchParameter))
+        for(let pokemon of this.pokemons){
+          pokemon.id = this.getPokemonId(pokemon.url)
+          pokemon.image = `${environment.DEFAULT_IMAGE}${pokemon.id}.png`
+        }
+        console.log(this.pokemons)
+      })
   }
 
   getCurrentPage(){
